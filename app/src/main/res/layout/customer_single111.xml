@@ -3,7 +3,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginTop="15dp"
@@ -12,6 +12,7 @@
     card_view:cardBackgroundColor="#e9e6e6"
     card_view:cardCornerRadius="8dp"
     card_view:cardElevation="2dp"
+   card_view:contentPadding="2dp"
     >
 
 
@@ -33,29 +34,42 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="15dp"
-                android:src="@drawable/presentation"
+                android:src="@drawable/medication"
 
                 />
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
-                android:gravity="center"
+
                 >
-
-
-
                 <TextView
-                    android:id="@+id/Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:gravity="left"
-                    android:text="22-05-2019"
+                    android:text="Expiry Date :"
+                    android:fontFamily="sans-serif-smallcaps"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#121111"
+                    android:textColor="#004497"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:typeface="sans"
+
+                    />
+
+
+                <TextView
+                    android:id="@+id/exdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="left"
+                    android:text="01-10-2020"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#004497"
                     android:textSize="11dp"
                     android:typeface="sans"
 
@@ -71,7 +85,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="1.7"
+            android:layout_weight="2.3"
             android:visibility="visible">
 
 
@@ -85,14 +99,14 @@
 
 
                 <TextView
-                    android:id="@+id/CustomerName"
+                    android:id="@+id/Medicine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:text="Avinash"
+                    android:text="GLUTADEL SACHIT 15GM"
                     android:fontFamily="sans-serif-smallcaps"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#0b451c"
+                    android:textColor="#004497"
                     android:textSize="17dp"
                     android:textStyle="bold"
                     android:typeface="sans"
@@ -118,7 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:text="Mobile No. :"
+                    android:text="Opening Stock :"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#030303"
                     android:fontFamily="sans-serif-smallcaps"
@@ -127,12 +141,12 @@
 
 
                 <TextView
-                    android:id="@+id/Mobile"
+                    android:id="@+id/openingstock"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="left"
-                    android:text="25455124525"
+                    android:text="50"
                     android:paddingLeft="5dp"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#181515"
@@ -160,7 +174,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="left"
                     android:singleLine="true"
-                    android:text="Email :"
+                    android:text="Opening Value :"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#151313"
                     android:fontFamily="sans-serif-smallcaps"
@@ -168,13 +182,13 @@
                     android:typeface="sans" />
 
                 <TextView
-                    android:id="@+id/Email"
+                    android:id="@+id/openingvalue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:gravity="left"
                     android:singleLine="false"
-                    android:text="sachin.tech@global.org.in"
+                    android:text="4900"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#1b1919"
                     android:typeface="sans"
@@ -182,50 +196,276 @@
 
                     />
             </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.6"
-            android:gravity="center"
-            android:background="@color/colorPrimaryDark"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/Totalcost"
-                android:layout_width="wrap_content"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Discount :"
-                android:textAllCaps="false"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:typeface="sans"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                >
 
-                />
 
-            <TextView
-                android:id="@+id/Discount"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:text="50"
-                android:textAllCaps="false"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:typeface="sans"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Purchase :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#151313"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="13dp"
+                    android:typeface="sans" />
 
-                />
+                <TextView
+                    android:id="@+id/Purchase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:singleLine="false"
+                    android:text="5000"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Sale Return :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/Salereturn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:singleLine="false"
+                    android:text="6000"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                >
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Purchase Return :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#151313"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="13dp"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/Purchasereturn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:singleLine="false"
+                    android:text="45000"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left"
+                    android:singleLine="false"
+                    android:text="Sale :"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/Sale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:singleLine="false"
+                    android:text="45000"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                >
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Sale Value :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#151313"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="13dp"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/SaleValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:singleLine="false"
+                    android:text="45000"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left"
+                    android:singleLine="false"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Closing Stock :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/closingstock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:singleLine="false"
+                    android:text="45000"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                >
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Closing Value :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#151313"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="13dp"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/ClosingValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:singleLine="false"
+                    android:text="45000"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:gravity="left"
+                    android:singleLine="false"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Re-Order Qty :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/reorder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:singleLine="false"
+                    android:text="-50"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#1b1919"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+
+                    />
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
-
 
     </LinearLayout>
 

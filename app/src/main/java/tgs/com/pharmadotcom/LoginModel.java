@@ -31,6 +31,16 @@ public class LoginModel {
         String log_username;
         String log_company;
 
+        public String getComapny_name() {
+            return comapny_name;
+        }
+
+        public void setComapny_name(String comapny_name) {
+            this.comapny_name = comapny_name;
+        }
+
+        String comapny_name;
+
         public String getLog_usergroupname() {
             return log_usergroupname;
         }

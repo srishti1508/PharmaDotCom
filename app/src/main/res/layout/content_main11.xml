@@ -31,17 +31,22 @@
 
    <android.support.v7.widget.CardView
        android:layout_width="match_parent"
-       android:layout_height="100dp"
+       android:layout_height="wrap_content"
        android:background="@drawable/layout_rect"
        android:layout_margin="10dp"
      diagonal:contentPadding="10dp"
-       diagonal:cardBackgroundColor="@color/white"
+      diagonal:cardBackgroundColor="@color/white"
        diagonal:cardCornerRadius="10dp"
        diagonal:cardElevation="10dp"
        >
 
       <LinearLayout
-          android:id="@+id/dashboard"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="horizontal">
+
+      <LinearLayout
+          android:id="@+id/dashboard1"
           android:layout_width="100dp"
           android:layout_height="100dp"
           android:layout_marginLeft="20dp"
@@ -59,7 +64,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/presentation" />
+                android:src="@drawable/boy" />
          </RelativeLayout>
 
          <RelativeLayout
@@ -73,13 +78,57 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-smallcaps"
                 android:gravity="center"
-                android:text="Sale Report"
+                android:text="Profile"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
          </RelativeLayout>
 
 
       </LinearLayout>
+
+
+         <LinearLayout
+             android:id="@+id/dashboard"
+             android:layout_width="100dp"
+             android:layout_height="100dp"
+             android:layout_marginLeft="20dp"
+             android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/layout_circles"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/presentation" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="sans-serif-smallcaps"
+                   android:gravity="center"
+                   android:text="Opening Stock Report"
+                   android:textColor="@color/colorPrimaryDark"
+                   android:textStyle="bold" />
+            </RelativeLayout>
+
+
+         </LinearLayout>
+      </LinearLayout>
+
    </android.support.v7.widget.CardView>
 
 
@@ -123,66 +172,152 @@
    <android.support.v7.widget.CardView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       diagonal:cardBackgroundColor="@color/white"
-       diagonal:contentPadding="5dp"
        android:layout_margin="10dp"
        android:layout_marginLeft="15dp"
        android:layout_marginRight="15dp"
+       diagonal:cardBackgroundColor="@color/white"
        diagonal:cardCornerRadius="10dp"
-       diagonal:cardElevation="10dp">
+       diagonal:cardElevation="10dp"
+       diagonal:contentPadding="5dp">
+
 
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:orientation="horizontal"
-          android:weightSum="3"
-
           android:layout_marginBottom="5dp"
+          android:orientation="horizontal"
+          android:weightSum="4">
 
+         <HorizontalScrollView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
 
-          >
-
-         <RelativeLayout
-             android:layout_width="0dp"
-             android:layout_height="match_parent"
-             android:layout_weight="1"
-             android:layout_marginRight="5dp"
-             android:background="@drawable/layout_rect"
-             android:padding="5dp">
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/images1"/>
-         </RelativeLayout>
+                android:layout_height="match_parent">
 
-         <RelativeLayout
-             android:layout_width="0dp"
-             android:layout_height="match_parent"
-             android:layout_weight="1"
-             android:layout_marginLeft="5dp"
-             android:layout_marginRight="5dp"
-             android:background="@drawable/layout_rect"
-             android:padding="5dp">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/images2"/>
-         </RelativeLayout>
+               <RelativeLayout
+                   android:layout_width="100dp"
+                   android:layout_height="match_parent"
+                   android:layout_marginRight="5dp"
+                   android:layout_weight="1"
+                   android:background="@drawable/layout_rect"
+                   android:padding="5dp">
 
-         <RelativeLayout
-             android:layout_width="0dp"
-             android:layout_height="match_parent"
-             android:layout_weight="1"
-             android:layout_marginLeft="5dp"
-             android:background="@drawable/layout_rect"
-             android:padding="5dp">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/images3"/>
-         </RelativeLayout>
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_alignParentTop="true"
+                      android:layout_marginTop="5dp"
+                      android:src="@drawable/images1" />
+               </RelativeLayout>
+
+               <RelativeLayout
+                   android:layout_width="100dp"
+                   android:layout_height="match_parent"
+                   android:layout_marginLeft="5dp"
+                   android:layout_marginRight="5dp"
+                   android:layout_weight="1"
+                   android:background="@drawable/layout_rect"
+                   android:padding="5dp">
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_alignParentBottom="true"
+                      android:layout_marginBottom="5dp"
+                      android:src="@drawable/images2" />
+               </RelativeLayout>
+
+               <RelativeLayout
+                   android:layout_width="100dp"
+                   android:layout_height="match_parent"
+                   android:layout_marginLeft="5dp"
+                   android:layout_weight="1"
+                   android:background="@drawable/layout_rect"
+                   android:padding="5dp">
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:src="@drawable/images3" />
+               </RelativeLayout>
+
+               <RelativeLayout
+                   android:layout_width="100dp"
+                   android:layout_height="match_parent"
+                   android:layout_alignParentTop="true"
+                   android:layout_marginLeft="5dp"
+                   android:layout_weight="1"
+                   android:background="@drawable/layout_rect"
+                   android:padding="5dp">
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:src="@drawable/safi" />
+               </RelativeLayout>
+
+               <RelativeLayout
+                   android:layout_width="100dp"
+                   android:layout_height="match_parent"
+                   android:layout_marginLeft="5dp"
+                   android:layout_weight="1"
+                   android:background="@drawable/layout_rect"
+                   android:padding="5dp">
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:src="@drawable/omni" />
+               </RelativeLayout>
+
+               <RelativeLayout
+                   android:layout_width="100dp"
+                   android:layout_height="match_parent"
+                   android:layout_marginLeft="5dp"
+                   android:layout_weight="1"
+                   android:background="@drawable/layout_rect"
+                   android:padding="5dp">
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:src="@drawable/ciplaprod" />
+               </RelativeLayout>
+
+               <RelativeLayout
+                   android:layout_width="100dp"
+                   android:layout_height="match_parent"
+                   android:layout_marginLeft="5dp"
+                   android:layout_weight="1"
+                   android:background="@drawable/layout_rect"
+                   android:padding="5dp">
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:src="@drawable/folon" />
+               </RelativeLayout>
+
+               <RelativeLayout
+                   android:layout_width="100dp"
+                   android:layout_height="match_parent"
+                   android:layout_marginLeft="5dp"
+                   android:layout_weight="1"
+                   android:background="@drawable/layout_rect"
+                   android:padding="5dp">
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:src="@drawable/agifix" />
+               </RelativeLayout>
+            </LinearLayout>
+         </HorizontalScrollView>
 
       </LinearLayout>
+
 
    </android.support.v7.widget.CardView>
 

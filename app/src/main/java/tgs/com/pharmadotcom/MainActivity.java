@@ -38,9 +38,10 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     NavigationView mNavigationView;
     ActionBarDrawerToggle drawerToggle;
     CoordinatorLayout rootLayout;
-    LinearLayout dashboard;
+    LinearLayout dashboard,dashboard1;
     Toolbar toolbar;
     SliderLayout slider;
+    TextView CompanyName;
     TextView marquee, notice;
     private SliderLayout mDemoSlider;
     private List<Album> albumList;
@@ -50,9 +51,9 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     public static String user_group_name;
     public static String user_id;
     public static String user_name;
-    public static String group_id;
+    public static String company_id;
     public static String referals;
-    public static String emp_id;
+    public static String company_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,9 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         dashboard = (LinearLayout) findViewById(R.id.dashboard);
+        dashboard1 = (LinearLayout) findViewById(R.id.dashboard1);
+        CompanyName = (TextView) findViewById(R.id.CompanyName);
+
         dashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,13 +71,16 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
                 Intent intent=new Intent(MainActivity.this,SaleReportActivity.class);
                 startActivity(intent);
 
-               /* SaleReport fragment = new SaleReport();
-                FragmentManager fm = MainActivity.this.getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.setCustomAnimations(R.animator.fade_in,
-                        R.animator.fade_out);
-                ft.replace(R.id.frag_container, fragment);
-                ft.commit();*/
+            }
+        });
+
+        dashboard1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
+                startActivity(intent);
+
             }
         });
         setSupportActionBar(toolbar);
@@ -96,9 +103,9 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         user_group_name = settings.getString("user_group_name", "");
         user_id = settings.getString("user_id", "");
         user_name = settings.getString("user_name", "");
-        group_id = settings.getString("group_id", "");
-        emp_id = settings.getString("emp_id", "");
-        referals = settings.getString("referals", referal);
+        company_id = settings.getString("company_id", "");
+        company_name = settings.getString("company_name", "");
+
 /*
         if(settings.getString("user_group_name", "").toString().equals("company_MR")){
             RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
@@ -109,6 +116,8 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
             recyclerView.setAdapter(adapter);
             prepareAlbums();
         }*/
+
+        CompanyName.setText(MainActivity.company_name);
     }
     private void prepareAlbums() {
         int[] covers = new int[]{
@@ -161,6 +170,9 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         file_maps.put("House of Cards", R.drawable.rsz_pharma_back3);
         file_maps.put("Game of Thrones", R.drawable.med2);
         file_maps.put("Big Bang ", R.drawable.med4);
+        file_maps.put("Bigs Bangs ", R.drawable.slider);
+        file_maps.put("Bigg Bangg ", R.drawable.cipla);
+        file_maps.put("Biggg Banggg ", R.drawable.fusion);
         for (String name : file_maps.keySet()) {
             TextSliderViews textSliderView = new TextSliderViews(this);
             // initialize a SliderLayout

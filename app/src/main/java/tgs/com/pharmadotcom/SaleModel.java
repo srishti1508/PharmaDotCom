@@ -24,6 +24,19 @@ public class SaleModel {
     private List<Response> filter_params = null;
 
 
+    public List<Response> getTotal_calc() {
+        return total_calc;
+    }
+
+    public void setTotal_calc(List<Response> total_calc) {
+        this.total_calc = total_calc;
+    }
+
+    @SerializedName("total_calc")
+    @Expose
+    private List<Response> total_calc = null;
+
+
     @SerializedName("message")
     @Expose
     private String message;
@@ -77,7 +90,115 @@ public class SaleModel {
       String sale_return_qty;
       String purchase_return_qty;
       String sale_qty;
-      String sale_amt;
+      String total_medicine;
+      String total_op_amt;
+      String total_pur_qty;
+      String total_sale_ret_qty;
+      String total_pur_ret_qty;
+      String total_sale_qty;
+      String total_sale_amt;
+
+        public String getTotal_medicine() {
+            return total_medicine;
+        }
+
+        public void setTotal_medicine(String total_medicine) {
+            this.total_medicine = total_medicine;
+        }
+
+        public String getTotal_op_amt() {
+            return total_op_amt;
+        }
+
+        public void setTotal_op_amt(String total_op_amt) {
+            this.total_op_amt = total_op_amt;
+        }
+
+        public String getTotal_pur_qty() {
+            return total_pur_qty;
+        }
+
+        public void setTotal_pur_qty(String total_pur_qty) {
+            this.total_pur_qty = total_pur_qty;
+        }
+
+        public String getTotal_sale_ret_qty() {
+            return total_sale_ret_qty;
+        }
+
+        public void setTotal_sale_ret_qty(String total_sale_ret_qty) {
+            this.total_sale_ret_qty = total_sale_ret_qty;
+        }
+
+        public String getTotal_pur_ret_qty() {
+            return total_pur_ret_qty;
+        }
+
+        public void setTotal_pur_ret_qty(String total_pur_ret_qty) {
+            this.total_pur_ret_qty = total_pur_ret_qty;
+        }
+
+        public String getTotal_sale_qty() {
+            return total_sale_qty;
+        }
+
+        public void setTotal_sale_qty(String total_sale_qty) {
+            this.total_sale_qty = total_sale_qty;
+        }
+
+        public String getTotal_sale_amt() {
+            return total_sale_amt;
+        }
+
+        public void setTotal_sale_amt(String total_sale_amt) {
+            this.total_sale_amt = total_sale_amt;
+        }
+
+        public String getTotal_res_qty() {
+            return total_res_qty;
+        }
+
+        public void setTotal_res_qty(String total_res_qty) {
+            this.total_res_qty = total_res_qty;
+        }
+
+        public String getTotal_res_amt() {
+            return total_res_amt;
+        }
+
+        public void setTotal_res_amt(String total_res_amt) {
+            this.total_res_amt = total_res_amt;
+        }
+
+        public String getTotal_pur_amt() {
+            return total_pur_amt;
+        }
+
+        public void setTotal_pur_amt(String total_pur_amt) {
+            this.total_pur_amt = total_pur_amt;
+        }
+
+        public String getTotal_sale_ret_amt() {
+            return total_sale_ret_amt;
+        }
+
+        public void setTotal_sale_ret_amt(String total_sale_ret_amt) {
+            this.total_sale_ret_amt = total_sale_ret_amt;
+        }
+
+        public String getTotal_pur_ret_amt() {
+            return total_pur_ret_amt;
+        }
+
+        public void setTotal_pur_ret_amt(String total_pur_ret_amt) {
+            this.total_pur_ret_amt = total_pur_ret_amt;
+        }
+
+        String total_res_qty;
+      String total_res_amt;
+      String total_pur_amt;
+      String total_sale_ret_amt;
+      String total_pur_ret_amt;
 
         public String getSrch_from() {
             return srch_from;
@@ -216,6 +337,7 @@ public class SaleModel {
       String closing_value;
       String re_order_qty;
       String expiry_date;
+      String sale_amt;
 
 
     }

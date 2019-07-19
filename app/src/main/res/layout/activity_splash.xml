@@ -5,10 +5,8 @@
     android:id="@+id/MainRootLayout"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffffff"
+    android:background="@drawable/splashback"
     tools:context=".SplashActivity">
-
-
 
     <WebView
         android:id="@+id/webView"
@@ -18,9 +16,5 @@
        >
 
     </WebView>
-
-
-
-
 
 </LinearLayout>

@@ -93,8 +93,10 @@ public class Login extends AppCompatActivity {
                     editor.putString("user_id", loginModel.getResponse().get(0).getLog_userid());
                     editor.putString("user_name", loginModel.getResponse().get(0).getLog_username());
                     editor.putString("user_group_name", loginModel.getResponse().get(0).getLog_usergroupname());
+                    editor.putString("company_id", loginModel.getResponse().get(0).getLog_company());
+                    editor.putString("company_name", loginModel.getResponse().get(0).getComapny_name());
                     editor.commit();
-                    Toast.makeText(Login.this, ""+loginModel.getResponse().get(0).getLog_usergroupname(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, ""+loginModel.getResponse().get(0).getComapny_name(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Login.this, MainActivity.class);
                     startActivity(intent);
                     finish();
