@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -87,6 +88,7 @@ EditText fromdate,todate;
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                vibrate();
                 if(validate()) {
                     progressBar.setVisibility(View.VISIBLE);
                     getServiceResponseData(fromdate.getText().toString(), todate.getText().toString());
@@ -211,6 +213,13 @@ EditText fromdate,todate;
         });
     }
 
+    private void vibrate() {
+        Vibrator v = (Vibrator) SaleReportActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(100); // 5000 miliseconds = 5 seconds
+
+    }
+
+
     private void getServiceResponseData(String From,String To) {
         InterfaceApi api = ApiClient.getClient().create(InterfaceApi.class);
         Call<SaleModel> call = api.mr_report_weeklySale(MainActivity.user_id,MainActivity.company_id,From,To);
@@ -289,7 +298,7 @@ EditText fromdate,todate;
         @Override
         public TableAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int i) {
             View itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.customer_single111, parent, false);
+                    .inflate(R.layout.horizon_layout, parent, false);
             return new TableAdapter.MyViewHolder(itemView);
         }
 

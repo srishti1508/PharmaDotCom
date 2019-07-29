@@ -96,7 +96,7 @@ public class Login extends AppCompatActivity {
                     editor.putString("company_id", loginModel.getResponse().get(0).getLog_company());
                     editor.putString("company_name", loginModel.getResponse().get(0).getComapny_name());
                     editor.commit();
-                    Toast.makeText(Login.this, ""+loginModel.getResponse().get(0).getComapny_name(), Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(Login.this, ""+loginModel.getResponse().get(0).getComapny_name(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Login.this, MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -105,7 +105,8 @@ public class Login extends AppCompatActivity {
                 }
             }
             @Override
-            public void onFailure(Call<LoginModel> call, Throwable t) {
+            public void onFailure(Call<LoginModel> call, Throwable t){
+                Toast.makeText(Login.this,"error occured", Toast.LENGTH_SHORT).show();
                 hideDialog();
             }
         });

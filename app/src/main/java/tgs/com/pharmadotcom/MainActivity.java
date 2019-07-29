@@ -1,9 +1,11 @@
 package tgs.com.pharmadotcom;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -67,7 +69,7 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         dashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                vibrate();
                 Intent intent=new Intent(MainActivity.this,SaleReportActivity.class);
                 startActivity(intent);
 
@@ -77,7 +79,7 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         dashboard1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                vibrate();
                 Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
                 startActivity(intent);
 
@@ -128,6 +130,14 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         albumList.add(a);
         adapter.notifyDataSetChanged();
     }
+
+    private void vibrate() {
+        Vibrator v = (Vibrator) MainActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(100); // 5000 miliseconds = 5 seconds
+
+    }
+
+
     private void setupDeawer() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(MainActivity.this, mDrawerLayout, toolbar, R.string.action_play_next, R.string.action_settings);
@@ -141,6 +151,7 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         NavigationView navigationView = (NavigationView) findViewById(R.id.main_drawer);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();

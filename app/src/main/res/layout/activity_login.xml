@@ -126,7 +126,6 @@
             android:textAllCaps="true"
             android:textColor="#fff" />
 
-
     </LinearLayout>
         </RelativeLayout>
 

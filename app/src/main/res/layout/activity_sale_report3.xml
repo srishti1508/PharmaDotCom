@@ -75,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-smallcaps"
-                android:gravity="center"
+                android:gravity="left"
                 android:textStyle="bold"
                 android:text="ABBOTT CRITICAL CARE"
                 android:textColor="#004497"
@@ -196,22 +196,178 @@
         </LinearLayout>
 
 
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/layout_rect"
+                android:weightSum="12">
+
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Medicine Name"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="5dp"
+                    android:textColor="#004497"
+                   />
+
+                <View
+                    android:layout_width="0.4dp"
+                    android:layout_height="wrap_content"
+                    android:background="#004497"/>
+
+
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Opening Stock"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="5dp"
+                    android:textColor="#004497"
+                   />
+                <View
+                    android:layout_width="0.4dp"
+                    android:layout_height="wrap_content"
+                    android:background="#004497"/>
+
+                <TextView
+                    android:id="@+id/text3"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="Opening Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="5dp"
+                    android:textColor="#004497"
+                   />
+
+
+                <TextView
+                    android:id="@+id/text4"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Purchase"
+                    android:gravity="center"
+                    android:textColor="#004497"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/text5"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Sale Return"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="5dp"
+                    android:textColor="#004497"
+                    android:gravity="center"
+                  />
+
+                <TextView
+                    android:id="@+id/text6"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="#004497"
+                    android:text="Purchase Return"
+                    android:fontFamily="sans-serif-smallcaps"/>
+
+                <TextView
+                    android:id="@+id/text7"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Sale"
+                    android:textColor="#004497"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="5dp"
+                  />
+
+                <TextView
+                    android:id="@+id/text8"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="#004497"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Sale Value"/>
+
+                <TextView
+                    android:id="@+id/text9"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#004497"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Closing Stock"
+                   />
+
+
+                <TextView
+                    android:id="@+id/text10"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Closing Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="5dp"
+                    android:textColor="#004497"
+                   />
+
+
+                <TextView
+                    android:id="@+id/text11"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Re Order Qty"
+                    android:textColor="#004497" />
+
+
+                <TextView
+                    android:id="@+id/text12"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Expiry Date"
+                    android:textColor="#004497" />
+
+            </LinearLayout>
+
+            <!--<TableLayout
+                android:id="@+id/activity_tableLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+            </TableLayout>-->
+        </HorizontalScrollView>
+
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
-            android:visibility="gone"
+            android:visibility="visible"
 
 
            >
 
         </android.support.v7.widget.RecyclerView>
-
-
-
-
-
 
     </LinearLayout>
 
