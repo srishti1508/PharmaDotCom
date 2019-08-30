@@ -34,8 +34,8 @@
        android:layout_height="wrap_content"
        android:background="@drawable/layout_rect"
        android:layout_margin="10dp"
-     diagonal:contentPadding="10dp"
-      diagonal:cardBackgroundColor="@color/white"
+       diagonal:contentPadding="10dp"
+       diagonal:cardBackgroundColor="@color/white"
        diagonal:cardCornerRadius="10dp"
        diagonal:cardElevation="10dp"
        >
@@ -45,53 +45,53 @@
           android:layout_height="match_parent"
           android:orientation="horizontal">
 
-      <LinearLayout
-          android:id="@+id/dashboard1"
-          android:layout_width="100dp"
-          android:layout_height="100dp"
-          android:layout_marginLeft="20dp"
-          android:orientation="vertical">
+         <!--<LinearLayout
+             android:id="@+id/dashboard1"
+             android:layout_width="100dp"
+             android:layout_height="100dp"
+             android:layout_marginLeft="40dp"
+             android:orientation="vertical">
 
-         <RelativeLayout
-             android:layout_width="50dp"
-             android:layout_height="50dp"
-             android:layout_marginLeft="25dp"
-             android:background="@drawable/layout_circles"
-             android:gravity="center"
-             android:layout_marginTop="10dp"
-             android:padding="10dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/boy" />
-         </RelativeLayout>
-
-         <RelativeLayout
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_gravity="center">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-smallcaps"
+            <RelativeLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/layout_circles"
                 android:gravity="center"
-                android:text="Profile"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold" />
-         </RelativeLayout>
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+               <ImageView
+                   android:layout_width="15dp"
+                   android:layout_height="28dp"
+                   android:src="@drawable/boy" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
 
-      </LinearLayout>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="sans-serif-smallcaps"
+                   android:gravity="center"
+                   android:text="Profile"
+                   android:textColor="@color/colorPrimaryDark"
+                   android:textStyle="bold" />
+            </RelativeLayout>
+
+
+         </LinearLayout>
 
 
          <LinearLayout
              android:id="@+id/dashboard"
              android:layout_width="100dp"
              android:layout_height="100dp"
-             android:layout_marginLeft="20dp"
+             android:layout_marginLeft="40dp"
              android:orientation="vertical">
 
             <RelativeLayout
@@ -126,6 +126,57 @@
             </RelativeLayout>
 
 
+         </LinearLayout>-->
+
+         <android.support.v7.widget.RecyclerView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/recycler_view"
+
+             >
+
+         </android.support.v7.widget.RecyclerView>
+
+         <LinearLayout
+             android:id="@+id/salereport"
+             android:layout_width="100dp"
+             android:layout_height="100dp"
+             android:layout_marginLeft="10dp"
+             android:orientation="vertical"
+             android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/layout_circles"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/saleicon" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="sans-serif-smallcaps"
+                   android:gravity="center"
+                   android:text="Sale Report"
+                   android:textColor="@color/colorPrimaryDark"
+                   android:textStyle="bold" />
+            </RelativeLayout>
+
+
          </LinearLayout>
       </LinearLayout>
 
@@ -138,7 +189,7 @@
        android:layout_height="180dp"
        android:background="@color/colorPrimaryDark"
        android:padding="20dp"
-     >
+       >
 
       <com.daimajia.slider.library.SliderLayout
           android:id="@+id/slider"

@@ -46,6 +46,7 @@ int mYear,mMonth,mDay;
 LinearLayout data,bottom;
 TextView Company,Search,ttlopeningstock,ttlopeningvalue,totalPurchase,totalSalereturn,totalPurchasereturn,totalSale,totalSaleValue,totalclosingstock,totalClosingValue;
 EditText fromdate,todate;
+TextView amtopeningstock,amtPurchase,amtSalereturn,amtPurchasereturn,amtSale,amtclosingstock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,13 @@ EditText fromdate,todate;
         totalSaleValue=findViewById(R.id.totalSaleValue);
         totalclosingstock=findViewById(R.id.totalclosingstock);
         totalClosingValue=findViewById(R.id.totalClosingValue);
+
+        amtopeningstock=findViewById(R.id.amtopeningstock);
+        amtPurchase=findViewById(R.id.amtPurchase);
+        amtSalereturn=findViewById(R.id.amtSalereturn);
+        amtPurchasereturn=findViewById(R.id.amtPurchasereturn);
+        amtSale=findViewById(R.id.amtSale);
+        amtclosingstock=findViewById(R.id.amtclosingstock);
 
         Search=findViewById(R.id.search);
         todate=findViewById(R.id.todate);
@@ -89,9 +97,15 @@ EditText fromdate,todate;
             @Override
             public void onClick(View view) {
                 vibrate();
-                if(validate()) {
-                    progressBar.setVisibility(View.VISIBLE);
-                    getServiceResponseData(fromdate.getText().toString(), todate.getText().toString());
+                if(CheckNetwork.isInternetAvailable(SaleReportActivity.this)) //returns true if internet available
+                {
+                    if (validate()) {
+                        progressBar.setVisibility(View.VISIBLE);
+                        getServiceResponseData(fromdate.getText().toString(),todate.getText().toString());
+                    }
+                }else
+                {
+                    Toast.makeText(SaleReportActivity.this,"No Internet Connection",1000).show();
                 }
             }
         });
@@ -240,6 +254,16 @@ EditText fromdate,todate;
                 totalSaleValue.setText(loginModel.getTotal_calc().get(0).getTotal_sale_amt());
                 totalclosingstock.setText(loginModel.getTotal_calc().get(0).getTotal_res_qty());
                 totalClosingValue.setText(loginModel.getTotal_calc().get(0).getTotal_res_amt());
+
+                amtopeningstock.setText(loginModel.getTotal_calc().get(0).getTotal_op_amt()+"/-");
+                amtPurchase.setText(loginModel.getTotal_calc().get(0).getTotal_pur_amt()+"/-");
+                amtSalereturn.setText(loginModel.getTotal_calc().get(0).getTotal_sale_ret_amt()+"/-");
+                amtPurchasereturn.setText(loginModel.getTotal_calc().get(0).getTotal_pur_ret_amt()+"/-");
+                amtSale.setText(loginModel.getTotal_calc().get(0).getTotal_sale_amt()+"/-");
+                amtclosingstock.setText(loginModel.getTotal_calc().get(0).getTotal_res_amt()+"/-");
+
+
+
 
                 tableAdapter = new TableAdapter(this,loginModel);
                 recycler_view.setAdapter(tableAdapter);

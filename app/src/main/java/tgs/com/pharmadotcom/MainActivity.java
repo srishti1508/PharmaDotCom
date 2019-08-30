@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -16,13 +19,15 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
@@ -40,7 +45,7 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     NavigationView mNavigationView;
     ActionBarDrawerToggle drawerToggle;
     CoordinatorLayout rootLayout;
-    LinearLayout dashboard,dashboard1;
+    LinearLayout dashboard,dashboard1,salereport;
     Toolbar toolbar;
     SliderLayout slider;
     TextView CompanyName;
@@ -48,6 +53,7 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     private SliderLayout mDemoSlider;
     private List<Album> albumList;
     private AlbumAdapter adapter;
+    private AdminAdapter adminadapter;
     SharedPreferences settings;
     Shared_Common_Pref shared_common_pref;
     public static String user_group_name;
@@ -56,17 +62,23 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     public static String company_id;
     public static String referals;
     public static String company_name;
+    public static String referral;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        dashboard = (LinearLayout) findViewById(R.id.dashboard);
-        dashboard1 = (LinearLayout) findViewById(R.id.dashboard1);
+        //dashboard = (LinearLayout) findViewById(R.id.dashboard);
+        //dashboard1 = (LinearLayout) findViewById(R.id.dashboard1);
         CompanyName = (TextView) findViewById(R.id.CompanyName);
+        salereport = (LinearLayout) findViewById(R.id.salereport);
 
-        dashboard.setOnClickListener(new View.OnClickListener() {
+       // String referal= getIntent().getStringExtra("userGroup");
+
+
+
+        /*dashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 vibrate();
@@ -84,18 +96,30 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
                 startActivity(intent);
 
             }
+        });*/
+
+        salereport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vibrate();
+                Intent intent=new Intent(MainActivity.this,SaleReportnewActivity.class);
+                startActivity(intent);
+
+            }
         });
+
         setSupportActionBar(toolbar);
         setupDeawer();
-         setupSlider();
+        setupSlider();
         albumList = new ArrayList<>();
         adapter = new AlbumAdapter(this, albumList);
-       /* recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);*/
+        adminadapter = new AdminAdapter(this, albumList);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
 
 
 
-        String referal= getIntent().getStringExtra("Outside_referal");
+        String referrals= getIntent().getStringExtra("Admin");
         shared_common_pref = new Shared_Common_Pref(MainActivity.this);
         settings = getSharedPreferences(PREFS_NAME, 0);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -107,17 +131,26 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         user_name = settings.getString("user_name", "");
         company_id = settings.getString("company_id", "");
         company_name = settings.getString("company_name", "");
+        referral = settings.getString("referral", referrals);
+        //Toast.makeText(this,""+user_group_name,Toast.LENGTH_SHORT).show();
 
-/*
         if(settings.getString("user_group_name", "").toString().equals("company_MR")){
-            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
+            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 3);
             recyclerView.setLayoutManager(mLayoutManager);
-            JazzyRecyclerViewScrollListener jazzyScrollListener = new JazzyRecyclerViewScrollListener();
-            recyclerView.setOnScrollListener(jazzyScrollListener);
-            jazzyScrollListener.setTransitionEffect(11);
+            //JazzyRecyclerViewScrollListener jazzyScrollListener = new JazzyRecyclerViewScrollListener();
+            //recyclerView.setOnScrollListener(jazzyScrollListener);
+          //  jazzyScrollListener.setTransitionEffect(11);
             recyclerView.setAdapter(adapter);
+            mr_penal();
+        }else if(settings.getString("user_group_name", "").toString().equals("admin")){
+            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 3);
+            recyclerView.setLayoutManager(mLayoutManager);
+            //JazzyRecyclerViewScrollListener jazzyScrollListener = new JazzyRecyclerViewScrollListener();
+            //recyclerView.setOnScrollListener(jazzyScrollListener);
+            //  jazzyScrollListener.setTransitionEffect(11);
+            recyclerView.setAdapter(adminadapter);
             prepareAlbums();
-        }*/
+        }
 
         CompanyName.setText(MainActivity.company_name);
     }
@@ -126,7 +159,22 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
                 R.drawable.presentation,
 
         };
-        Album a = new Album("Sales Report", 13, covers[0]);
+        Album a = new Album("Credit Report", 13, covers[0]);
+        albumList.add(a);
+        adminadapter.notifyDataSetChanged();
+    }
+
+    private void mr_penal(){
+        int[] covers = new int[]{
+                R.drawable.boy,
+                R.drawable.presentation,
+
+
+        };
+        Album a = new Album("Profile", 13, covers[0]);
+        albumList.add(a);
+
+         a = new Album("Opening Stock", 13, covers[1]);
         albumList.add(a);
         adapter.notifyDataSetChanged();
     }
@@ -137,6 +185,33 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
 
     }
 
+    public boolean isPermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.CALL_PHONE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v("TAG", "Permission is granted");
+                return true;
+            } else {
+                Log.v("TAG", "Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 1);
+                return false;
+            }
+        } else {
+            Log.v("TAG", "Permission is granted");
+            return true;
+        }
+    }
+
+    public void call_action() {
+        String phnum = "8357801271";
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:" + phnum));
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
+        startActivity(callIntent);
+    }
 
     private void setupDeawer() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -163,12 +238,22 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
             Intent i = new Intent(MainActivity.this, Login.class);
             startActivity(i);
             finish();
+        }else if(id == R.id.call){
+            if (isPermissionGranted()) {
+                call_action();
+            } else {
+
+            }
+        }else if(id == R.id.person){
+            Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
+            startActivity(intent);
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
     private void setupSlider() {
-         mDemoSlider = (SliderLayout) findViewById(R.id.slider);
+        mDemoSlider = (SliderLayout) findViewById(R.id.slider);
        /* HashMap<String,String> url_maps = new HashMap<String, String>();
         url_maps.put("Hannibal", "http://static2.hypable.com/wp-content/uploads/2013/12/hannibal-season-2-release-date.jpg");
         url_maps.put("Big Bang Theory", "http://tvfiles.alphacoders.com/100/hdclearart-10.png");
@@ -203,7 +288,6 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         //  mDemoSlider.setCustomAnimation(new DescriptionAnimation());
         mDemoSlider.setDuration(3000);
     }
-
 
     @Override
     public void onSliderClick(BaseSliderView slider) {

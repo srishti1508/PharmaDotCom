@@ -429,7 +429,7 @@
                             android:id="@+id/bottom"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             android:visibility="gone"
                             android:background="#c4fdfa">
 
@@ -620,6 +620,200 @@
                                 </LinearLayout>
 
                             </HorizontalScrollView>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.4dp"
+                                android:background="#004497"/>
+
+                            <HorizontalScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:orientation="horizontal"
+                                    android:weightSum="12">
+
+                                    <TextView
+
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:text="Amount"
+                                        android:gravity="center"
+                                        android:fontFamily="sans-serif-smallcaps"
+                                        android:padding="5dp"
+                                        android:background="@color/colorPrimaryDark"
+                                        android:textColor="@color/white"
+                                        android:textStyle="bold"
+                                        />
+
+                                    <View
+                                        android:layout_width="0.4dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="#004497"/>
+
+
+                                    <TextView
+                                        android:id="@+id/amtopeningstock"
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="Opening Stock"
+                                        android:fontFamily="sans-serif-smallcaps"
+                                        android:padding="5dp"
+                                        android:textColor="@color/black"
+                                        />
+                                    <View
+                                        android:layout_width="0.4dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="#004497"/>
+
+                                    <TextView
+                                        android:id="@+id/amtopeningvalue"
+                                        android:layout_width="100dp"
+                                        android:layout_height="50dp"
+                                        android:gravity="center"
+                                        android:text="-"
+                                        android:fontFamily="sans-serif-smallcaps"
+                                        android:padding="5dp"
+                                        android:textColor="@color/black"
+                                        />
+
+                                    <View
+                                        android:layout_width="0.4dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="#004497"/>
+                                    <TextView
+                                        android:id="@+id/amtPurchase"
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:text="Purchase"
+                                        android:gravity="center"
+                                        android:textColor="@color/black"
+                                        android:fontFamily="sans-serif-smallcaps"
+                                        android:padding="5dp"
+                                        />
+                                    <View
+                                        android:layout_width="0.4dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="#004497"/>
+
+                                    <TextView
+                                        android:id="@+id/amtSalereturn"
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sale Return"
+                                        android:fontFamily="sans-serif-smallcaps"
+                                        android:padding="5dp"
+                                        android:textColor="@color/black"
+                                        android:gravity="center"
+                                        />
+
+                                    <View
+                                        android:layout_width="0.4dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="#004497"/>
+                                    <TextView
+                                        android:id="@+id/amtPurchasereturn"
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:padding="5dp"
+                                        android:gravity="center"
+                                        android:textColor="@color/black"
+                                        android:text="Purchase Return"
+                                        android:fontFamily="sans-serif-smallcaps"/>
+                                    <View
+                                        android:layout_width="0.4dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="#004497"/>
+
+                                    <TextView
+                                        android:id="@+id/amtSale"
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sale"
+                                        android:textColor="@color/black"
+                                        android:gravity="center"
+                                        android:fontFamily="sans-serif-smallcaps"
+                                        android:padding="5dp"
+                                        />
+                                    <View
+                                        android:layout_width="0.4dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="#004497"/>
+
+                                    <TextView
+                                        android:id="@+id/amtSaleValue"
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:padding="5dp"
+                                        android:gravity="center"
+                                        android:textColor="@color/black"
+                                        android:fontFamily="sans-serif-smallcaps"
+                                        android:text="-"/>
+                                    <View
+                                        android:layout_width="0.4dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="#004497"/>
+
+                                    <TextView
+                                        android:id="@+id/amtclosingstock"
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:textColor="@color/black"
+                                        android:fontFamily="sans-serif-smallcaps"
+                                        android:text="Closing Stock"
+                                        />
+                                    <View
+                                        android:layout_width="0.4dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="#004497"/>
+
+                                    <TextView
+                                        android:id="@+id/amtClosingValue"
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="-"
+                                        android:fontFamily="sans-serif-smallcaps"
+                                        android:padding="5dp"
+                                        android:textColor="@color/black"
+                                        />
+
+                                    <View
+                                        android:layout_width="0.4dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="#004497"/>
+                                    <TextView
+                                        android:id="@+id/amttext"
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:padding="5dp"
+                                        android:text=""
+                                        android:textColor="@color/black"/>
+                                    <View
+                                        android:layout_width="0.4dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="#004497"/>
+
+                                    <TextView
+                                        android:id="@+id/amttext13"
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:padding="5dp"
+                                        android:text=""
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+                            </HorizontalScrollView>
+
 
                         </LinearLayout>
 

@@ -35,16 +35,27 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull AlbumAdapter.MyViewHolder holder, int position) {
         Album album = albumList.get(position);
+        final int mPosition = holder.getAdapterPosition();
 
         holder.title.setText(album.getName());
         Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
+        holder.thumbnail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mPosition==0){
+                    callActivity(ProfileActivity.class,holder.getAdapterPosition());
+                }else if(mPosition==1){
+                    callActivity(SaleReportActivity.class,holder.getAdapterPosition());
+                }
+            }
+        });
         /*if(position == 0) {
             holder.relative.setBackgroundColor(Color.parseColor("#ff9999"));
             //holder.layoutColor.setBackgroundColor(Color.parseColor("#027474"));
         }else if(position == 1) {
             holder.relative.setBackgroundColor(Color.parseColor("#ffb366"));
            // holder.layoutColor.setBackgroundColor(Color.parseColor("#23527c"));
-        }else if(position == 2) {
+        }else if(position == 2) {p
             holder.relative.setBackgroundColor(Color.parseColor("#b366ff"));
             //holder.layoutColor.setBackgroundColor(Color.parseColor("#BD8008"));
         }else if(position == 3) {
@@ -77,21 +88,21 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
             thumbnail = (ImageView) view.findViewById(R.id.icon);
           layoutbg = (CardView) view.findViewById(R.id.layout);
          // relative = (RelativeLayout) view.findViewById(R.id.relative);
-            thumbnail.setOnClickListener(new View.OnClickListener() {
+/*            thumbnail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    callActivity(mContext, getAdapterPosition());
+                    final =
                 }
-            });
+            });*/
         }
     }
 
-    private void callActivity(Context mContext, int adapterPosition) {
+    private void callActivity(Class classname, int position) {
         /*if(adapterPosition==1){
             Toast.makeText(mContext,"Will be update soon...",Toast.LENGTH_LONG).show();
         }else{*/
-        Intent intent = new Intent(mContext, Dashboard_Main.class);
-        intent.putExtra("position", adapterPosition);
+        Intent intent = new Intent(mContext,classname);
+
         mContext.startActivity(intent);
     }
 }

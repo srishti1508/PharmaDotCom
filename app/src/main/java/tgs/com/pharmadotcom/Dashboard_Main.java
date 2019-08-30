@@ -34,7 +34,7 @@ public class Dashboard_Main extends AppCompatActivity {
         switch (position){
 
             case 0:
-                return new SaleReport();
+                //return new ProfileActivity();
 
 
             default:

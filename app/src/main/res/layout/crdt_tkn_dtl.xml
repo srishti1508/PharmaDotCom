@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/layout_rect"
+            android:weightSum="5">
+
+            <TextView
+                android:id="@+id/cust_name"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="5dp"
+                android:textColor="#004497"
+                android:text="ACTACREZ-2025 GM" />
+
+            <View
+                android:layout_width="0.4dp"
+                android:layout_height="match_parent"
+                android:background="#004497"/>
+            <TextView
+                android:id="@+id/cust_amt"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="30"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="5dp"
+                />
+            <View
+                android:layout_width="0.4dp"
+                android:layout_height="wrap_content"
+                android:background="#004497"/>
+
+            <TextView
+                android:id="@+id/amt_rtn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="14100"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="5dp"
+                />
+            <View
+                android:layout_width="0.4dp"
+                android:layout_height="wrap_content"
+                android:background="#004497"/>
+
+            <TextView
+                android:id="@+id/amt_rcvd"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="5dp"
+                />
+            <View
+                android:layout_width="0.4dp"
+                android:layout_height="wrap_content"
+                android:background="#004497"/>
+
+            <TextView
+                android:id="@+id/blns_amt"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="5dp"
+                android:gravity="center"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+
+        <!--<TableLayout
+            android:id="@+id/activity_tableLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </TableLayout>-->
+    </HorizontalScrollView>
+
+
+</RelativeLayout>
