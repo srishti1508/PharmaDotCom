@@ -28,12 +28,15 @@ public class Sale_credit extends AppCompatActivity {
 RecyclerView recyclerView;
 TableAdapter tableAdapter;
 ProgressBar progressBar;
+TextView slcr_Cramt,slcr_amtrcv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sale_credit);
         recyclerView=findViewById(R.id.sale_crdt_dtl);
+        slcr_Cramt = findViewById(R.id.slcr_Cramt);
+        slcr_amtrcv = findViewById(R.id.slcr_amtrcv);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(Sale_credit.this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -58,6 +61,8 @@ ProgressBar progressBar;
              recyclerView.setVisibility(View.VISIBLE);
              final SaleCraditModel status = response.body();
              if (status.getResponse().size()>0) {
+                 slcr_Cramt.setText(status.getResponse().get(0).getTot_cr_amt());
+                 slcr_amtrcv.setText(status.getResponse().get(0).getTot_rec_amt());
                  tableAdapter = new TableAdapter(Sale_credit.this,status);
                  recyclerView.setAdapter(tableAdapter);
              } else {

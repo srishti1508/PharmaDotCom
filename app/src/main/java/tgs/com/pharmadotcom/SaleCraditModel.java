@@ -110,6 +110,25 @@ public class SaleCraditModel {
         }
 
         String bal_amt;
-  String rec_amt;
+        String tot_cr_amt;
+        String tot_rec_amt;
+
+        public String getTot_cr_amt() {
+            return tot_cr_amt;
+        }
+
+        public void setTot_cr_amt(String tot_cr_amt) {
+            this.tot_cr_amt = tot_cr_amt;
+        }
+
+        public String getTot_rec_amt() {
+            return tot_rec_amt;
+        }
+
+        public void setTot_rec_amt(String tot_rec_amt) {
+            this.tot_rec_amt = tot_rec_amt;
+        }
+
+        String rec_amt;
     }
 }
